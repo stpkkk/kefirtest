@@ -1,7 +1,7 @@
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
-import authors from "src/data/authors";
-import {commentsPage1, commentsPage2, commentsPage3} from "src/data/comments";
+import authors from "../data/authors";
+import {commentsPage1, commentsPage2, commentsPage3} from "../data/comments";
 
 const useMockAdapter = () => {
     const mock = new MockAdapter(axios, {delayResponse: 600});

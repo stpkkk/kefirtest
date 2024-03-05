@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @font-face {
+    font-family: "ALS-Zheldor";
+    src: url("../public/fonts/ALS-Zheldor-Regular.ttf");
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("../public/fonts/Montserrat-SemiBold.ttf");
+    font-weight: 600;
+    font-display: swap;
+} */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+        monospace;
+}
+
+main {
+    @apply mx-auto min-h-[calc(100vh-358px)] w-full max-w-[1262px] flex-grow px-[1rem];
+}
+
+.wrapper {
+    @apply rounded-2xl drop-shadow-custom bg-white;
+}
+
+/* FLEX */
+.flex_center {
+    @apply flex items-center justify-center;
+}
+
+.flex_start {
+    @apply flex items-start justify-start;
+}
+
+.flex_end {
+    @apply flex items-center justify-end;
+}
+
+.flex_between {
+    @apply flex flex-wrap items-center justify-between;
+}
+
+/* Modal */
+.overlay {
+    @apply fixed inset-0 bg-black bg-opacity-25 opacity-100;
+}

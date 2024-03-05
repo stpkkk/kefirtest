@@ -1,4 +1,5 @@
-import {subtractHours} from "src/lib/date";
+/* eslint-disable no-useless-concat */
+import {subtractHours} from "../lib/date";
 
 interface IPagination<T> {
     pagination: {
