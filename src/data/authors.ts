@@ -1,13 +1,13 @@
-import img10 from "../assets/avatars/chew.jpeg";
-import img9 from "../assets/avatars/general.jpeg";
-import img7 from "../assets/avatars/gon.jpeg";
-import img6 from "../assets/avatars/han-solo.jpg";
-import img5 from "../assets/avatars/luke.jpeg";
-import img1 from "../assets/avatars/obi-wan.jpeg";
-import img8 from "../assets/avatars/palpatine.jpeg";
-import img3 from "../assets/avatars/veider.jpeg";
-import img4 from "../assets/avatars/walker.jpeg";
-import img2 from "../assets/avatars/yoda.jpeg";
+import img10 from "../assets/images/avatars/chew.jpeg";
+import img9 from "../assets/images/avatars/general.jpeg";
+import img7 from "../assets/images/avatars/gon.jpeg";
+import img6 from "../assets/images/avatars/han-solo.jpg";
+import img5 from "../assets/images/avatars/luke.jpeg";
+import img1 from "../assets/images/avatars/obi-wan.jpeg";
+import img8 from "../assets/images/avatars/palpatine.jpeg";
+import img3 from "../assets/images/avatars/veider.jpeg";
+import img4 from "../assets/images/avatars/walker.jpeg";
+import img2 from "../assets/images/avatars/yoda.jpeg";
 
 const authors: any[] = [
     {
