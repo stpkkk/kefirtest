@@ -1,10 +1,10 @@
 import React from "react";
-import Heart from "../assets/icons/heart.svg";
+import Total from "./Total";
 
 const Comments: React.FC = () => {
     return (
-        <div>
-            <img src={Heart} alt="" />
+        <div className="max-w-[562px] w-full">
+            <Total />
         </div>
     );
 };
