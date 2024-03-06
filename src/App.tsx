@@ -3,7 +3,7 @@ import {Comments} from "./components";
 
 function App() {
     return (
-        <div className="flex_center pt-[52px] pb-[64px] px-4">
+        <div className="flex_center px-6 pt-[52px] sm:pt-[32px] pb-[64px]">
             <Comments />
         </div>
     );

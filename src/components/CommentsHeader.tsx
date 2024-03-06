@@ -1,15 +1,12 @@
 import React from "react";
-import Heart from "../assets/icons/heart.svg";
+import Likes from "./Likes";
 
 const CommentsHeader: React.FC = () => {
     return (
-        <div className="divide-solid divide-lightGray divide-y">
-            <div className="flex_between mb-[8px] font-lato font-bold">
+        <div className="divide-solid divide-grayLight divide-y-[0.2px]">
+            <div className="flex_between mb-[10px] lg:mb-[8px] font-bold">
                 <span className="lg:text-md text-sm">267 комментариев</span>
-                <div className="flex_between gap-[8px] max-w-[75px]">
-                    <img className="p-[1px]" src={Heart} alt="total-likes" />
-                    <span className="text-sm lg:text-[15px]">8 632</span>
-                </div>
+                <Likes quantity="8 632" />
             </div>
             <div />
         </div>
