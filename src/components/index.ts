@@ -1,4 +1,4 @@
 import Comments from "./Comments";
-import Total from "./Total";
+import CommentsHeader from "./CommentsHeader";
 
-export {Comments, Total};
+export {Comments, CommentsHeader};

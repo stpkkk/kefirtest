@@ -1,10 +1,10 @@
 import React from "react";
-import Total from "./Total";
+import CommentsHeader from "./CommentsHeader";
 
 const Comments: React.FC = () => {
     return (
         <div className="max-w-[562px] w-full">
-            <Total />
+            <CommentsHeader />
         </div>
     );
 };

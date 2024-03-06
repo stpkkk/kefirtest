@@ -1,7 +1,7 @@
 import React from "react";
 import Heart from "../assets/icons/heart.svg";
 
-const Total = () => {
+const CommentsHeader: React.FC = () => {
     return (
         <div className="divide-solid divide-lightGray divide-y">
             <div className="flex_between mb-[8px] font-lato font-bold">
@@ -16,4 +16,4 @@ const Total = () => {
     );
 };
 
-export default Total;
+export default CommentsHeader;
