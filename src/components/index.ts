@@ -1,7 +1,7 @@
 import Comment from "./Comment";
 import Comments from "./Comments";
 import CommentsHeader from "./CommentsHeader";
-import CommentsList from "./CommentsList";
+import CommentsTree from "./CommentsTree";
 import Likes from "./Likes";
 
-export {Comments, CommentsHeader, CommentsList, Comment, Likes};
+export {Comments, CommentsHeader, CommentsTree, Comment, Likes};

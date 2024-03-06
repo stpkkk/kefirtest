@@ -2,7 +2,7 @@ import React from "react";
 import Heart from "../assets/icons/heart.svg";
 
 interface ILikes {
-    quantity: string;
+    quantity: number;
 }
 
 const Likes: React.FC<ILikes> = ({quantity}) => {
