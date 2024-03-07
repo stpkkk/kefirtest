@@ -40,7 +40,7 @@ export function formatDateTime(dateString: string) {
             String(date.getMinutes()).padStart(2, "0") +
             ":" +
             String(date.getSeconds()).padStart(2, "0");
-        return `${dd}.${mm}.${yyyy} ${hh}:${mmss}`;
+        return `${dd}.${mm}.${yyyy}, ${hh}:${mmss}`;
     }
 }
 

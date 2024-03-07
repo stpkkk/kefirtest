@@ -61,7 +61,7 @@ function App() {
         );
 
         return (
-            <div className="flex_center px-6 pt-[52px] sm:pt-[32px] pb-[64px]">
+            <div className="flex_center px-6 lg:pt-[52px] pt-[32px] pb-[64px]">
                 <Comments comments={mergedComments} setPage={setPage} />
             </div>
         );

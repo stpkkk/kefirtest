@@ -9,7 +9,7 @@ interface ICommentProps {
 
 const Comment: React.FC<ICommentProps> = ({comment}) => {
     return (
-        <>
+        <div className="flex gap-[20px]">
             <img
                 src={comment.authorDetails?.avatar}
                 alt="avatar"
@@ -31,7 +31,7 @@ const Comment: React.FC<ICommentProps> = ({comment}) => {
                     {comment.text}
                 </p>
             </div>
-        </>
+        </div>
     );
 };
 

@@ -17,10 +17,10 @@ const CommentsTree: React.FC<ICommentsProps> = ({comments}) => {
         }
 
         return (
-            <ul className="flex flex-col gap-[24px] lg:gap-[20px]">
+            <ul className="flex flex-col">
                 {childComments.map((childComment) => (
                     <li
-                        className="flex flex-col flex-nowrap gap-[20px] pl-[20px]"
+                        className="flex flex-col lg:pl-[20px] mt-[20px]"
                         key={childComment.id}
                     >
                         <Comment comment={childComment} />
@@ -32,21 +32,21 @@ const CommentsTree: React.FC<ICommentsProps> = ({comments}) => {
     };
 
     return (
-        <div>
+        <ul className="flex flex-col">
             {comments
                 .filter((comment) => comment.parent === null)
                 .map((rootComment) => (
-                    <ul
-                        className="flex flex-col gap-[24px] lg:gap-[20px]"
+                    <li
+                        className="flex flex-col mt-[20px]"
                         key={rootComment.id}
                     >
-                        <li className="flex gap-[20px]" key={rootComment.id}>
-                            <Comment comment={rootComment} />
-                        </li>
-                        {buildCommentTree(rootComment.id)}
-                    </ul>
+                        <Comment comment={rootComment} />
+                        <div className="lg:pl-0 pl-[20px]">
+                            {buildCommentTree(rootComment.id)}
+                        </div>
+                    </li>
                 ))}
-        </div>
+        </ul>
     );
 };
 

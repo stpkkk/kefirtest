@@ -13,7 +13,7 @@ module.exports = {
                 md: "16px",
             },
             screens: {
-                sm: {max: "768px"},
+                lg: {min: "768px"},
             },
             fontFamily: {
                 lato: ["Lato", "sans-serif"],

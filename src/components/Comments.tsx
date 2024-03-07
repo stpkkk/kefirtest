@@ -17,7 +17,7 @@ const Comments: React.FC<ICommentsProps> = ({comments, setPage}) => {
     return (
         <div className="max-w-[562px] w-full">
             <CommentsHeader />
-            <div className="flex_center flex-col pt-[32px]">
+            <div className="flex_center flex-col pt-[12px]">
                 <CommentsTree comments={comments} />
                 <Button onClick={onLoadMore} text="Загрузить еще" />
             </div>

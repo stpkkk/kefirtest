@@ -7,7 +7,7 @@ interface ILikes {
 
 const Likes: React.FC<ILikes> = ({quantity}) => {
     return (
-        <div className="flex_between gap-[8px]">
+        <div className="flex justify-between items-center flex-nowrap gap-[8px]">
             <button type="button">
                 <img
                     src={Heart}
