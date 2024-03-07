@@ -1,4 +1,5 @@
 import React from "react";
+import {formatDateTime} from "../lib";
 import {IComment} from "../types";
 import Likes from "./Likes";
 
@@ -21,7 +22,7 @@ const Comment: React.FC<ICommentProps> = ({comment}) => {
                             {comment.authorDetails?.name}
                         </span>
                         <span className="text-gray text-sm lg:text-md leading-[19px] lg:leading-[17px]">
-                            {comment.created}
+                            {formatDateTime(comment.created)}
                         </span>
                     </div>
                     <Likes quantity={comment.likes} />
