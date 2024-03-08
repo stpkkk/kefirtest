@@ -5,9 +5,10 @@ import Likes from "./Likes";
 
 interface ICommentProps {
     comment: IComment;
+    setComments: React.Dispatch<React.SetStateAction<IComment[]>>;
 }
 
-const Comment: React.FC<ICommentProps> = ({comment}) => {
+const Comment: React.FC<ICommentProps> = ({comment, setComments}) => {
     return (
         <div className="flex gap-[20px]">
             <img
@@ -25,7 +26,7 @@ const Comment: React.FC<ICommentProps> = ({comment}) => {
                             {formatDateTime(comment.created)}
                         </span>
                     </div>
-                    <Likes quantity={comment.likes} />
+                    <Likes comment={comment} setComments={setComments} />
                 </div>
                 <p className="text-sm leading-[17px] lg:text-md lg:leading-[19px]">
                     {comment.text}

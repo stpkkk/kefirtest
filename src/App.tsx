@@ -47,6 +47,8 @@ function App() {
         isSuccess: commentsSuccess,
     } = useCommentsQuery(page);
 
+    const isLoading = authorsLoading || commentsLoading;
+
     const onLoadMore = useCallback(() => {
         setPage((prev) => {
             const nextPage = prev + 1;
@@ -59,8 +61,6 @@ function App() {
             return prev;
         });
     }, [commentsData]);
-
-    const isLoading = authorsLoading || commentsLoading;
 
     useEffect(() => {
         if (commentsSuccess && authorsSuccess) {
@@ -88,6 +88,7 @@ function App() {
                 onLoadMore={onLoadMore}
                 isDisabled={isLoadMoreDisabled}
                 isLoading={isLoading}
+                setComments={setComments}
             />
         </div>
     );

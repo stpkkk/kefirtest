@@ -9,6 +9,7 @@ interface ICommentsProps {
     onLoadMore: () => void;
     isDisabled: boolean;
     isLoading: boolean;
+    setComments: React.Dispatch<React.SetStateAction<IComment[]>>;
 }
 
 const Comments: React.FC<ICommentsProps> = ({
@@ -16,12 +17,13 @@ const Comments: React.FC<ICommentsProps> = ({
     onLoadMore,
     isDisabled,
     isLoading,
+    setComments,
 }) => {
     return (
         <div className="max-w-[562px] w-full">
             <CommentsHeader />
             <div className="flex_center flex-col lg:gap-[60px] gap-[40px] pt-[12px]">
-                <CommentsTree comments={comments} />
+                <CommentsTree comments={comments} setComments={setComments} />
                 {isLoading ? (
                     <div className="flex_center">
                         <span className="tex-lg font-bold">Загрузка...</span>
