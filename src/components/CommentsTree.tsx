@@ -6,31 +6,31 @@ interface ICommentsProps {
     comments: IComment[];
 }
 
+const buildCommentTree = (comments: IComment[], parentId: number | null) => {
+    const childComments = comments.filter(
+        (comment) => comment.parent === parentId,
+    );
+
+    if (childComments.length === 0) {
+        return null;
+    }
+
+    return (
+        <ul className="flex flex-col">
+            {childComments.map((childComment) => (
+                <li
+                    className="flex flex-col lg:pl-[20px] mt-[20px]"
+                    key={childComment.id}
+                >
+                    <Comment comment={childComment} />
+                    {buildCommentTree(comments, childComment.id)}
+                </li>
+            ))}
+        </ul>
+    );
+};
+
 const CommentsTree: React.FC<ICommentsProps> = ({comments}) => {
-    const buildCommentTree = (commentId: number) => {
-        const childComments = comments.filter(
-            (comment) => comment.parent === commentId,
-        );
-
-        if (childComments.length === 0) {
-            return null;
-        }
-
-        return (
-            <ul className="flex flex-col">
-                {childComments.map((childComment) => (
-                    <li
-                        className="flex flex-col lg:pl-[20px] mt-[20px]"
-                        key={childComment.id}
-                    >
-                        <Comment comment={childComment} />
-                        {buildCommentTree(childComment.id)}
-                    </li>
-                ))}
-            </ul>
-        );
-    };
-
     return (
         <ul className="flex flex-col">
             {comments
@@ -42,7 +42,7 @@ const CommentsTree: React.FC<ICommentsProps> = ({comments}) => {
                     >
                         <Comment comment={rootComment} />
                         <div className="lg:pl-0 pl-[20px]">
-                            {buildCommentTree(rootComment.id)}
+                            {buildCommentTree(comments, rootComment.id)}
                         </div>
                     </li>
                 ))}

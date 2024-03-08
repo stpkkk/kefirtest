@@ -6,20 +6,33 @@ import CommentsTree from "./CommentsTree";
 
 interface ICommentsProps {
     comments: IComment[];
-    setPage: React.Dispatch<React.SetStateAction<number>>;
+    onLoadMore: () => void;
+    isDisabled: boolean;
+    isLoading: boolean;
 }
 
-const Comments: React.FC<ICommentsProps> = ({comments, setPage}) => {
-    const onLoadMore = () => {
-        setPage((prev: number) => prev + 1);
-    };
-
+const Comments: React.FC<ICommentsProps> = ({
+    comments,
+    onLoadMore,
+    isDisabled,
+    isLoading,
+}) => {
     return (
         <div className="max-w-[562px] w-full">
             <CommentsHeader />
-            <div className="flex_center flex-col pt-[12px]">
+            <div className="flex_center flex-col lg:gap-[60px] gap-[40px] pt-[12px]">
                 <CommentsTree comments={comments} />
-                <Button onClick={onLoadMore} text="Загрузить еще" />
+                {isLoading ? (
+                    <div className="flex_center">
+                        <span className="tex-lg font-bold">Загрузка...</span>
+                    </div>
+                ) : (
+                    <Button
+                        onClick={onLoadMore}
+                        isDisabled={isDisabled}
+                        text="Загрузить еще"
+                    />
+                )}
             </div>
         </div>
     );
