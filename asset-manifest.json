@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/kefirtest/static/css/main.7cc2f224.css",
+    "main.js": "/kefirtest/static/js/main.e15e2e60.js",
+    "static/media/bg.png": "/kefirtest/static/media/bg.f93cbd8b136d0bb94468.png",
+    "static/media/Lato-Regular.ttf": "/kefirtest/static/media/Lato-Regular.80c07943565d91b976e1.ttf",
+    "static/media/Lato-Bold.ttf": "/kefirtest/static/media/Lato-Bold.bb154e8dcbf157f82e9b.ttf",
+    "static/media/han-solo.jpg": "/kefirtest/static/media/han-solo.84705bac66e252072c67.jpg",
+    "index.html": "/kefirtest/index.html",
+    "main.7cc2f224.css.map": "/kefirtest/static/css/main.7cc2f224.css.map",
+    "main.e15e2e60.js.map": "/kefirtest/static/js/main.e15e2e60.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7cc2f224.css",
+    "static/js/main.e15e2e60.js"
+  ]
+}
