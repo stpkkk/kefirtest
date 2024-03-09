@@ -27,11 +27,9 @@ const Comment: React.FC<ICommentProps> = ({comment}) => {
                     </div>
                     <Likes comment={comment} />
                 </div>
-                <div className="flex break-all">
-                    <p className="text-sm leading-[17px] lg:text-md lg:leading-[19px] ">
-                        {comment.text}
-                    </p>
-                </div>
+                <p className="text-sm leading-[17px] lg:text-md lg:leading-[19px] break-all">
+                    {comment.text}
+                </p>
             </div>
         </div>
     );

@@ -2,7 +2,7 @@ import React, {useState, useEffect, useCallback, useMemo} from "react";
 import {useQuery} from "react-query";
 import getAuthorsRequest from "./api/authors/getAuthorsRequest";
 import getCommentsRequest from "./api/comments/getCommentsRequest";
-import {Comments} from "./components";
+import {Comments, Loader} from "./components";
 import {CommentsContext} from "./context";
 import {IAuthor, IComment, ICommentsData} from "./types";
 
@@ -48,20 +48,19 @@ function App() {
         isSuccess: commentsSuccess,
     } = useCommentsQuery(page);
 
-    const isLoading = authorsLoading || commentsLoading;
+    const isLoading = (authorsLoading || commentsLoading) && page === 1;
+    const isLoadingMore = authorsLoading || commentsLoading;
+    const totalPages = commentsData?.pagination?.total_pages;
 
     const onLoadMore = useCallback(() => {
         setPage((prev) => {
             const nextPage = prev + 1;
-            if (
-                commentsData?.pagination?.total_pages &&
-                nextPage <= commentsData.pagination.total_pages
-            ) {
+            if (totalPages && nextPage <= totalPages) {
                 return nextPage;
             }
             return prev;
         });
-    }, [commentsData]);
+    }, [totalPages]);
 
     useEffect(() => {
         if (commentsSuccess && authorsSuccess) {
@@ -70,9 +69,18 @@ function App() {
                 authorsData,
             );
             setComments((prevComments) => [...prevComments, ...mergedComments]);
-            setIsLoadMoreDisabled(page >= commentsData.pagination.total_pages);
+            setIsLoadMoreDisabled(
+                totalPages !== undefined && page >= totalPages,
+            );
         }
-    }, [commentsData, authorsData, commentsSuccess, authorsSuccess, page]);
+    }, [
+        authorsData,
+        authorsSuccess,
+        commentsData,
+        commentsSuccess,
+        page,
+        totalPages,
+    ]);
 
     const contextValue = useMemo(
         () => ({
@@ -82,10 +90,18 @@ function App() {
         [comments, setComments],
     );
 
+    if (isLoading) {
+        return (
+            <div className="place-items-center grid h-screen">
+                <Loader />
+            </div>
+        );
+    }
+
     if (authorsError || commentsError) {
         return (
             <p className="place-items-center grid h-screen text-5xl font-bold">
-                Error fetching data
+                Error fetching data 💥💥💥
             </p>
         );
     }
@@ -95,8 +111,8 @@ function App() {
             <div className="flex_center px-6 lg:pt-[52px] pt-[32px] pb-[64px]">
                 <Comments
                     onLoadMore={onLoadMore}
+                    isLoadingMore={isLoadingMore}
                     isLoadMoreDisabled={isLoadMoreDisabled}
-                    isLoading={isLoading}
                 />
             </div>
         </CommentsContext.Provider>
