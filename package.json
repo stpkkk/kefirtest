@@ -1,12 +1,15 @@
 {
     "name": "technical_task",
     "version": "0.1.0",
+    "homepage": "https://stpkkk.github.io/kefirtest",
     "private": true,
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "prettier": "prettier --write '*/**/*.{ts,tsx,js,jsx,css,scss,json}'"
+        "prettier": "prettier --write '*/**/*.{ts,tsx,js,jsx,css,scss,json}'",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
     },
     "dependencies": {
         "@testing-library/jest-dom": "5.16.4",
@@ -45,6 +48,7 @@
     },
     "devDependencies": {
         "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+        "gh-pages": "^6.1.1",
         "tailwindcss": "^3.4.1"
     }
 }

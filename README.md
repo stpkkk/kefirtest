@@ -1,3 +1,12 @@
+# <a href="https://stpkkk.github.io/kefirtest/">Kefir Test Task</a>
+
+## App stack
+
+-   React.js
+-   Typescript
+-   Tailwind
+-   React Query
+
 # Тестовое задание
 
 1. Репозиторий не форкать
