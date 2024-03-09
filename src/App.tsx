@@ -1,8 +1,9 @@
-import React, {useState, useEffect, useCallback} from "react";
+import React, {useState, useEffect, useCallback, useMemo} from "react";
 import {useQuery} from "react-query";
 import getAuthorsRequest from "./api/authors/getAuthorsRequest";
 import getCommentsRequest from "./api/comments/getCommentsRequest";
 import {Comments} from "./components";
+import {CommentsContext} from "./context";
 import {IAuthor, IComment, ICommentsData} from "./types";
 
 function mergeCommentsWithAuthors(
@@ -73,6 +74,14 @@ function App() {
         }
     }, [commentsData, authorsData, commentsSuccess, authorsSuccess, page]);
 
+    const contextValue = useMemo(
+        () => ({
+            comments,
+            setComments,
+        }),
+        [comments, setComments],
+    );
+
     if (authorsError || commentsError) {
         return (
             <p className="place-items-center grid h-screen text-5xl font-bold">
@@ -82,15 +91,15 @@ function App() {
     }
 
     return (
-        <div className="flex_center px-6 lg:pt-[52px] pt-[32px] pb-[64px]">
-            <Comments
-                comments={comments}
-                onLoadMore={onLoadMore}
-                isDisabled={isLoadMoreDisabled}
-                isLoading={isLoading}
-                setComments={setComments}
-            />
-        </div>
+        <CommentsContext.Provider value={contextValue}>
+            <div className="flex_center px-6 lg:pt-[52px] pt-[32px] pb-[64px]">
+                <Comments
+                    onLoadMore={onLoadMore}
+                    isLoadMoreDisabled={isLoadMoreDisabled}
+                    isLoading={isLoading}
+                />
+            </div>
+        </CommentsContext.Provider>
     );
 }
 

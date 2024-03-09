@@ -1,12 +1,9 @@
-import React from "react";
+import React, {useContext} from "react";
 import {Heart} from "../assets/icons/Heart";
-import {IComment} from "../types";
+import {CommentsContext} from "../context";
 
-interface ICommentsHeader {
-    comments: IComment[];
-}
-
-const CommentsHeader: React.FC<ICommentsHeader> = ({comments}) => {
+const CommentsHeader: React.FC = () => {
+    const {comments} = useContext(CommentsContext);
     const totalLikes = comments.reduce((acc, c) => acc + c.likes, 0);
     return (
         <div className="divide-solid divide-grayLight divide-y-[0.2px]">

@@ -1,17 +1,9 @@
-import React from "react";
+import React, {useContext} from "react";
+import {CommentsContext} from "../context";
 import {IComment} from "../types";
 import Comment from "./Comment";
 
-interface ICommentsProps {
-    comments: IComment[];
-    setComments: React.Dispatch<React.SetStateAction<IComment[]>>;
-}
-
-const buildCommentTree = (
-    comments: IComment[],
-    parentId: number | null,
-    setComments: React.Dispatch<React.SetStateAction<IComment[]>>,
-) => {
+const buildCommentTree = (comments: IComment[], parentId: number | null) => {
     const childComments = comments.filter(
         (comment) => comment.parent === parentId,
     );
@@ -27,15 +19,17 @@ const buildCommentTree = (
                     className="flex flex-col lg:pl-[20px] mt-[20px]"
                     key={childComment.id}
                 >
-                    <Comment comment={childComment} setComments={setComments} />
-                    {buildCommentTree(comments, childComment.id, setComments)}
+                    <Comment comment={childComment} />
+                    {buildCommentTree(comments, childComment.id)}
                 </li>
             ))}
         </ul>
     );
 };
 
-const CommentsTree: React.FC<ICommentsProps> = ({comments, setComments}) => {
+const CommentsTree: React.FC = () => {
+    const {comments} = useContext(CommentsContext);
+
     return (
         <ul className="flex flex-col">
             {comments
@@ -45,16 +39,9 @@ const CommentsTree: React.FC<ICommentsProps> = ({comments, setComments}) => {
                         className="flex flex-col mt-[20px]"
                         key={rootComment.id}
                     >
-                        <Comment
-                            comment={rootComment}
-                            setComments={setComments}
-                        />
+                        <Comment comment={rootComment} />
                         <div className="lg:pl-0 pl-[20px]">
-                            {buildCommentTree(
-                                comments,
-                                rootComment.id,
-                                setComments,
-                            )}
+                            {buildCommentTree(comments, rootComment.id)}
                         </div>
                     </li>
                 ))}

@@ -1,14 +1,15 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {Heart} from "../assets/icons/Heart";
+import {CommentsContext} from "../context";
 import {IComment} from "../types";
 
 interface ILikes {
     comment: IComment;
-    setComments: React.Dispatch<React.SetStateAction<IComment[]>>;
 }
 
-const Likes: React.FC<ILikes> = ({comment, setComments}) => {
+const Likes: React.FC<ILikes> = ({comment}) => {
     const [liked, setLiked] = useState(false);
+    const {setComments} = useContext(CommentsContext);
 
     const updateLikes = (newLikes: number) => {
         setComments((prevComments) =>
