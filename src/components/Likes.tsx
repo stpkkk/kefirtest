@@ -19,11 +19,9 @@ const Likes: React.FC<ILikes> = ({comment, setComments}) => {
     };
 
     const handleLikeToggle = () => {
-        setLiked((prevLiked) => {
-            const newLikes = prevLiked ? comment.likes - 1 : comment.likes + 1;
-            updateLikes(newLikes);
-            return !prevLiked;
-        });
+        const newLikes = liked ? comment.likes - 1 : comment.likes + 1;
+        updateLikes(newLikes);
+        setLiked(!liked);
     };
 
     return (
