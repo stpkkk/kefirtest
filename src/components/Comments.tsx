@@ -17,7 +17,7 @@ const Comments: React.FC<ICommentsProps> = ({
     return (
         <div className="max-w-[562px] w-full">
             <CommentsHeader />
-            <div className="flex_center flex-col lg:gap-[60px] gap-[40px] pt-[12px]">
+            <div className="flex_center flex-col lg:gap-[60px] gap-[40px] pt-[12px] px-6 lg:px-0">
                 <CommentsTree />
                 {isLoadingMore ? (
                     <div className="flex_center">

@@ -108,7 +108,7 @@ function App() {
 
     return (
         <CommentsContext.Provider value={contextValue}>
-            <div className="flex_center px-6 lg:pt-[52px] pt-[32px] pb-[64px]">
+            <div className="flex_center lg:pt-[42px] pt-[22px] pb-[64px]">
                 <Comments
                     onLoadMore={onLoadMore}
                     isLoadingMore={isLoadingMore}
